@@ -1,0 +1,38 @@
+doctype
+html
+  head
+    title #{title} Elo Ladder
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css')
+
+  body
+    header
+        h1(style='margin-left:50px') Elo Ladder
+    .container
+      p Running on node with Express, Jade 
+      br
+
+      div
+        h5 Add Game:
+        form(method="GET")
+          div.form-group
+            label(for='winner') Winner
+            input.form-control(type='text', placeholder ='winning player', name = 'winner')
+          div.form-group
+            label(for='loser') Loser
+            input.form-control(type='text', placeholder ='losing player', name = 'loser')
+          button.btn.btn-primary(type='submit') Submit Game
+      br    
+      br
+      table(style= 'width:100%, border1')
+        h5 Current Rankings:
+        tr
+          th Player Name
+          th Elo
+          th Wins
+          th Losses
+        for row in ladder
+          tr
+            td #{row.name}
+            td #{row.elo}
+            td #{row.wins}
+            td #{row.losses}
