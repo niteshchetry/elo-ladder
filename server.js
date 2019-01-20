@@ -7,8 +7,6 @@ app.set('views', __dirname + '/views')
 app.set('view engine', 'pug');
 
 app.get('/', function(req, res) {
-    res.json([{who: "me", what: "idk"}])
-    /*
     db.query("SELECT * FROM player ORDER BY elo DESC", function(err, result){
         if (err) throw err;
         res.render('index', {ladder: result});
@@ -18,7 +16,6 @@ app.get('/', function(req, res) {
                 updateLeaderboard(winner, loser);
             }    
     });
-    */
 });
 
 let port = process.env.PORT;
