@@ -10,12 +10,12 @@ app.get('/', function(req, res) {
     db.query("SELECT * FROM player ORDER BY elo DESC", function(err, result){
         if (err) throw err;
         res.render('index', {ladder: result});
-        const winner = req.query.winner;
-        const loser = req.query.loser;
-        if(winner != null && loser != null) {
-            updateLeaderboard(winner, loser);
-        }
-    })
+            const winner = req.query.winner;
+            const loser = req.query.loser;
+            if(winner != null && loser != null) {
+                updateLeaderboard(winner, loser);
+            }
+    });
 });
 
 app.listen(3003, () => {
