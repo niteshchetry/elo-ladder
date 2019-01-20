@@ -21,6 +21,8 @@ app.get('/', function(req, res) {
     */
 });
 
-app.listen(3003, () => {
-    console.log("Server is up and listening on 3003...")
-})
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+app.listen(port);
