@@ -12,7 +12,7 @@ app.get('/', function(req, res) {
         res.render('index', {ladder: result});
             const winner = req.query.winner;
             const loser = req.query.loser;
-            if(winner != null && loser != null) {
+            if((winner != null || winner != "") && (loser != null || loser != "") && (winner != loser)) {
                 updateLeaderboard(winner, loser);
             }    
     });
